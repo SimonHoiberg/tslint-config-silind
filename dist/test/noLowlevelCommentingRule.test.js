@@ -54,5 +54,10 @@ describe('Linter will not add failure', function () {
         var result = lintRunner_1.helper({ src: src, rule: rule });
         expect(result.errorCount).toBe(0);
     });
+    it('should not fail on JSDoc comment above interface', function () {
+        var src = "\n      /**\n       * This is a JSDoc Comment\n       */\n      export interface ISomeInterface {\n\n      }\n    ";
+        var result = lintRunner_1.helper({ src: src, rule: rule });
+        expect(result.errorCount).toBe(0);
+    });
 });
 //# sourceMappingURL=noLowlevelCommentingRule.test.js.map

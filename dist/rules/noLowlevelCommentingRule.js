@@ -65,6 +65,9 @@ function walkOnComments(ctx) {
             if (firstLine.match(/.*class.*/m)) {
                 return;
             }
+            if (firstLine.match(/.*interface.*/m)) {
+                return;
+            }
             if (firstLine.match(/.*const.*\(/m)) {
                 return;
             }

@@ -150,4 +150,18 @@ describe('Linter will not add failure', () => {
     const result = helper({ src, rule });
     expect(result.errorCount).toBe(0);
   });
+
+  it('should not fail on JSDoc comment above interface', () => {
+    const src = `
+      /**
+       * This is a JSDoc Comment
+       */
+      export interface ISomeInterface {
+
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
 });

@@ -55,6 +55,10 @@ function walkOnComments(ctx: Lint.WalkContext): void {
         return;
       }
 
+      if (firstLine.match(/.*interface.*/m)) {
+        return;
+      }
+
       if (firstLine.match(/.*const.*\(/m)) {
         return;
       }
