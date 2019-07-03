@@ -4,3 +4,4 @@ coverage
 testProject
 *.js.map
 tslint.json
+.vscode
