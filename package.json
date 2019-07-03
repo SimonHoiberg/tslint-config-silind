@@ -1,0 +1,29 @@
+{
+  "name": "tslint-config-silind",
+  "version": "1.0.0",
+  "description": "An opinionated TSLint configuration for writing scalable and hygienic code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silind/tslint-config-silind.git"
+  },
+  "keywords": [
+    "tslint",
+    "typescript",
+    "clean code"
+  ],
+  "author": "Silind Software",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Silind/tslint-config-silind/issues"
+  },
+  "homepage": "https://github.com/Silind/tslint-config-silind#readme",
+  "dependencies": {
+    "tslint": "^5.18.0",
+    "tsutils": "^3.14.0",
+    "typescript": "^3.5.2"
+  }
+}
