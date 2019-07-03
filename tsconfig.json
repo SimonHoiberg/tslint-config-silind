@@ -8,5 +8,5 @@
     "lib": ["es2017"]
   },
   "exclude": ["node_modules"],
-  "include": ["rules"]
+  "include": ["rules", "test/noLowlevelCommentingRule.test.ts"]
 }

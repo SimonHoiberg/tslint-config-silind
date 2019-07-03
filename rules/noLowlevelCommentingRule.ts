@@ -26,6 +26,7 @@ function walkOnComments(ctx: Lint.WalkContext): void {
     if (fullText.slice(pos, pos + 2) === '//') {
       ctx.addFailure(pos, end, Rule.FAILURE_STRING);
     }
+    
     if (fullText.slice(pos, pos + 2) === '/*' && fullText.slice(pos, pos + 3) !== '/**') {
       if (!allJSDoc.find((text: string) => text === fullText)) {
         ctx.addFailure(pos, end, Rule.FAILURE_STRING);
