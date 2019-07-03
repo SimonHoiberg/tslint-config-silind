@@ -59,6 +59,9 @@ function walkOnComments(ctx) {
         if (fullText.slice(pos, pos + 3) === '/**') {
             var afterComment = fullText.substring(end).trim();
             var firstLine = afterComment.substring(0, afterComment.indexOf('\n'));
+            if (firstLine.match(/\@.+/m)) {
+                return;
+            }
             if (firstLine.match(/.*class.*/m)) {
                 return;
             }

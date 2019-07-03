@@ -135,4 +135,19 @@ describe('Linter will not add failure', () => {
     const result = helper({ src, rule });
     expect(result.errorCount).toBe(0);
   });
+
+  it('should not fail on JSDoc comment above decorator', () => {
+    const src = `
+      /**
+       * This is a JSDoc Comment
+       */
+      @someDecorator()
+      class A {
+        
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
 });

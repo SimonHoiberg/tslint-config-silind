@@ -47,6 +47,10 @@ function walkOnComments(ctx: Lint.WalkContext): void {
       const afterComment = fullText.substring(end).trim();
       const firstLine = afterComment.substring(0, afterComment.indexOf('\n'));
 
+      if (firstLine.match(/\@.+/m)) {
+        return;
+      }
+
       if (firstLine.match(/.*class.*/m)) {
         return;
       }
