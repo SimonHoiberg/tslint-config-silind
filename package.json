@@ -1,10 +1,12 @@
 {
   "name": "tslint-config-silind",
   "version": "1.0.3",
-  "description": "An opinionated TSLint configuration for writing scalable and hygienic code",
+  "description": "An opinionated TSLint configuration preset for writing scalable, clean and hygienic code",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage && make-coverage-badge"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0",
+    "make-coverage-badge": "^1.1.1",
     "ts-jest": "^24.0.2"
   },
   "jest": {
@@ -41,6 +44,9 @@
     },
     "testMatch": [
       "**/**/*.test.(ts|tsx)"
+    ],
+    "coverageReporters": [
+      "json-summary"
     ]
   }
 }

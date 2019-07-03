@@ -5,10 +5,23 @@ import * as ts from 'typescript';
 /**
  * No Low-Level Commenting Rule
  * @author Silind Software
+ * @license MIT
  */
 
 export class Rule extends Lint.Rules.AbstractRule {
   static FAILURE_STRING = 'Low-Level comments are not allowed';
+
+  public static metadata: Lint.IRuleMetadata = {
+    ruleName: 'no-lowlevel-commenting',
+    description: 'Fails in the presence of low-level comments that are not part of JSDocs',
+    optionsDescription: 'No optional options can be provided',
+    options: {
+      type: 'boolean',
+    },
+    hasFix: true,
+    type: 'style',
+    typescriptOnly: true,
+  }
 
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithFunction(sourceFile, walkOnComments);

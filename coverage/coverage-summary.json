@@ -1,0 +1,4 @@
+{"total": {"lines":{"total":40,"covered":35,"skipped":0,"pct":87.5},"statements":{"total":50,"covered":41,"skipped":0,"pct":82},"functions":{"total":15,"covered":12,"skipped":0,"pct":80},"branches":{"total":28,"covered":20,"skipped":0,"pct":71.43}}
+,"/home/simon/Documents/Silind/Web/Github/Node Package Manager/tslint-config-silind/dist/noLowlevelCommentingRule.js": {"lines":{"total":32,"covered":29,"skipped":0,"pct":90.63},"functions":{"total":13,"covered":11,"skipped":0,"pct":84.62},"statements":{"total":37,"covered":32,"skipped":0,"pct":86.49},"branches":{"total":24,"covered":16,"skipped":0,"pct":66.67}}
+,"/home/simon/Documents/Silind/Web/Github/Node Package Manager/tslint-config-silind/test/lintRunner.ts": {"lines":{"total":8,"covered":6,"skipped":0,"pct":75},"functions":{"total":2,"covered":1,"skipped":0,"pct":50},"statements":{"total":13,"covered":9,"skipped":0,"pct":69.23},"branches":{"total":4,"covered":4,"skipped":0,"pct":100}}
+}
