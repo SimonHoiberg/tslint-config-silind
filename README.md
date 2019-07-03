@@ -93,7 +93,7 @@ rules: {
 *Any custom rule can be disabled and severity level can be set individually*  
 *In this example, the rule `no-lowlevel-commenting` is configured with a severity-level of `error`:*
 ```
-"no-lowlevel-commenting": { "severity": "warning" }
+"no-lowlevel-commenting": { "severity": "error" }
 ```
 *To disable a rule, simply set its value to `false`:*
 ```

@@ -51,11 +51,15 @@ function walkOnComments(ctx: Lint.WalkContext): void {
         return;
       }
 
-      if (firstLine.match(/.*[a-zA-Z0-9]*\([a-zA-Z0-9\:\<\>\[\]\s,]*\).*/m)) {
+      if (firstLine.match(/.*const.*\(/m)) {
         return;
       }
 
-      if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,]*\)\s+=>\s+\{/m)) {
+      if (firstLine.match(/.*[a-zA-Z0-9]*\([a-zA-Z0-9\:\<\>\[\]\s,\?\|\=]*\).*/m)) {
+        return;
+      }
+
+      if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,\?\|\=]*\)\s+=>\s+\{/m)) {
         return;
       }
 
