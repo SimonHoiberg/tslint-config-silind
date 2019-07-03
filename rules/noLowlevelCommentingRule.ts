@@ -29,21 +29,37 @@ export class Rule extends Lint.Rules.AbstractRule {
 }
 
 function walkOnComments(ctx: Lint.WalkContext): void {
-  const allJSDoc = ctx.sourceFile.statements.map((node: ts.Node) => {
-    if (ts.isJSDoc(node)) {
-      return node.getText();
-    }
-  });
-
   utils.forEachComment(ctx.sourceFile, (fullText, { kind, pos, end }) => {
+    const fail = () => {
+      const fix = new Lint.Replacement(pos, end - pos, '');
+      ctx.addFailure(pos, end, Rule.FAILURE_STRING, fix);
+    }
+
     if (fullText.slice(pos, pos + 2) === '//') {
-      ctx.addFailure(pos, end, Rule.FAILURE_STRING);
+      fail();
     }
     
     if (fullText.slice(pos, pos + 2) === '/*' && fullText.slice(pos, pos + 3) !== '/**') {
-      if (!allJSDoc.find((text: string) => text === fullText)) {
-        ctx.addFailure(pos, end, Rule.FAILURE_STRING);
+      fail();
+    }
+
+    if (fullText.slice(pos, pos + 3) === '/**') {
+      const afterComment = fullText.substring(end).trim();
+      const firstLine = afterComment.substring(0, afterComment.indexOf('\n'));
+
+      if (firstLine.match(/.*class.*/m)) {
+        return;
       }
+
+      if (firstLine.match(/.*[a-zA-Z0-9]*\([a-zA-Z0-9\:\<\>\[\]\s,]*\).*/m)) {
+        return;
+      }
+
+      if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,]*\)\s+=>\s+\{/m)) {
+        return;
+      }
+
+      fail();
     }
   });
 }

@@ -2,7 +2,7 @@
 ![NPM Version](https://img.shields.io/npm/v/tslint-config-silind.svg)
 [![Github License](https://img.shields.io/github/license/Silind/tslint-config-silind.svg)](https://github.com/Silind/Hue-Debugger-UI/blob/master/LICENSE)
 [![Build Status](https://travis-ci.com/Silind/tslint-config-silind.svg?branch=master)](https://travis-ci.com/Silind/Hue-Debugger-UI)
-![Code Coverage](https://github.com/Silind/tslint-config-silind/blob/master/coverage/badge.svg)
+![Code Coverage](https://img.shields.io/codecov/c/github/Silind/tslint-config-silind.svg)
 
 #### An opinionated TSLint configuration preset for writing *scalable*, *clean* and *hygienic* code
 

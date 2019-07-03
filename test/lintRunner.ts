@@ -9,7 +9,7 @@ export const helper = ({ src, rule, fileName }: { src; rule; fileName? }) => {
       rules: {
         [rule.name || rule]: [true, ...rule.options],
       },
-      rulesDirectory: 'dist',
+      rulesDirectory: 'dist/rules',
     }),
   );
   return linter.getResult();

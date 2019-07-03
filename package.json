@@ -4,9 +4,7 @@
   "description": "An opinionated TSLint configuration preset for writing scalable, clean and hygienic code",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "npm test -- --coverage",
-    "test:badges": "npm run test:coverage && make-coverage-badge"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

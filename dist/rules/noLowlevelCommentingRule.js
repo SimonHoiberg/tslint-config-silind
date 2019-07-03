@@ -15,10 +15,10 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Lint = require("tslint");
 var utils = require("tsutils");
-var ts = require("typescript");
 /**
  * No Low-Level Commenting Rule
  * @author Silind Software
+ * @license MIT
  */
 var Rule = /** @class */ (function (_super) {
     __extends(Rule, _super);
@@ -29,24 +29,46 @@ var Rule = /** @class */ (function (_super) {
         return this.applyWithFunction(sourceFile, walkOnComments);
     };
     Rule.FAILURE_STRING = 'Low-Level comments are not allowed';
+    Rule.metadata = {
+        ruleName: 'no-lowlevel-commenting',
+        description: 'Fails in the presence of low-level comments that are not part of JSDocs',
+        optionsDescription: 'No optional options can be provided',
+        options: {
+            type: 'boolean',
+        },
+        hasFix: true,
+        type: 'style',
+        typescriptOnly: true,
+    };
     return Rule;
 }(Lint.Rules.AbstractRule));
 exports.Rule = Rule;
 function walkOnComments(ctx) {
-    var allJSDoc = ctx.sourceFile.statements.map(function (node) {
-        if (ts.isJSDoc(node)) {
-            return node.getText();
-        }
-    });
     utils.forEachComment(ctx.sourceFile, function (fullText, _a) {
         var kind = _a.kind, pos = _a.pos, end = _a.end;
+        var fail = function () {
+            var fix = new Lint.Replacement(pos, end - pos, '');
+            ctx.addFailure(pos, end, Rule.FAILURE_STRING, fix);
+        };
         if (fullText.slice(pos, pos + 2) === '//') {
-            ctx.addFailure(pos, end, Rule.FAILURE_STRING);
+            fail();
         }
         if (fullText.slice(pos, pos + 2) === '/*' && fullText.slice(pos, pos + 3) !== '/**') {
-            if (!allJSDoc.find(function (text) { return text === fullText; })) {
-                ctx.addFailure(pos, end, Rule.FAILURE_STRING);
+            fail();
+        }
+        if (fullText.slice(pos, pos + 3) === '/**') {
+            var afterComment = fullText.substring(end).trim();
+            var firstLine = afterComment.substring(0, afterComment.indexOf('\n'));
+            if (firstLine.match(/.*class.*/m)) {
+                return;
             }
+            if (firstLine.match(/.*[a-zA-Z0-9]*\([a-zA-Z0-9\:\<\>\[\]\s,]*\).*/m)) {
+                return;
+            }
+            if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,]*\)\s+=>\s+\{/m)) {
+                return;
+            }
+            fail();
         }
     });
 }
