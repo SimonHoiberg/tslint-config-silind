@@ -1,7 +1,7 @@
 module.exports = {
   extends: './tslint-base.json',
   rules: {
-    "jsx-alignment": true,
+    "no-lowlevel-commenting": true,
     "curly": true,
     "max-classes-per-file": false,
     "variable-name": false,

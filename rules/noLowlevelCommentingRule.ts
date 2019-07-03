@@ -1,28 +1,35 @@
 import * as Lint from 'tslint';
-import * as utils from "tsutils";
+import * as utils from 'tsutils';
 import * as ts from 'typescript';
 
 /**
  * No Low-Level Commenting Rule
- * TSLint Rule boilerplate from
- * https://github.com/eranshabi/tslint-custom-rules-boilerplate/blob/master/src/myCustomRule.ts
  * @author Silind Software
  */
 
-const LOW_LEVEL_FAILURE = 'Low-Level comments are not allowed'
-
 export class Rule extends Lint.Rules.AbstractRule {
-  static FAILURE_STRING = 'Use of debugger statements is forbidden.';
+  static FAILURE_STRING = 'Low-Level comments are not allowed';
 
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithFunction(sourceFile, walkOnComments);
   }
 }
 
-function walkOnComments(ctx: Lint.WalkContext) {
+function walkOnComments(ctx: Lint.WalkContext): void {
+  const allJSDoc = ctx.sourceFile.statements.map((node: ts.Node) => {
+    if (ts.isJSDoc(node)) {
+      return node.getText();
+    }
+  });
+
   utils.forEachComment(ctx.sourceFile, (fullText, { kind, pos, end }) => {
     if (fullText.slice(pos, pos + 2) === '//') {
-      ctx.addFailure(pos, end, LOW_LEVEL_FAILURE);
+      ctx.addFailure(pos, end, Rule.FAILURE_STRING);
+    }
+    if (fullText.slice(pos, pos + 2) === '/*' && fullText.slice(pos, pos + 3) !== '/**') {
+      if (!allJSDoc.find((text: string) => text === fullText)) {
+        ctx.addFailure(pos, end, Rule.FAILURE_STRING);
+      }
     }
   });
 }
