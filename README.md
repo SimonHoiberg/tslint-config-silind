@@ -1,7 +1,7 @@
 # TSLint Config Silind
 ![NPM Version](https://img.shields.io/npm/v/tslint-config-silind.svg)
-[![Github License](https://img.shields.io/github/license/Silind/tslint-config-silind.svg)](https://github.com/Silind/Hue-Debugger-UI/blob/master/LICENSE)
-[![Build Status](https://travis-ci.com/Silind/tslint-config-silind.svg?branch=master)](https://travis-ci.com/Silind/Hue-Debugger-UI)
+[![Github License](https://img.shields.io/github/license/Silind/tslint-config-silind.svg)](https://github.com/Silind/tslint-config-silind/blob/master/LICENSE)
+[![Build Status](https://travis-ci.com/Silind/tslint-config-silind.svg?branch=master)](https://travis-ci.com/Silind/tslint-config-silind)
 ![Code Coverage](https://img.shields.io/codecov/c/github/Silind/tslint-config-silind.svg)
 
 #### An opinionated TSLint configuration preset for writing *scalable*, *clean* and *hygienic* code
@@ -44,7 +44,7 @@ If you already have a `tslint.json` file in your project, make sure to add `tsli
 
 ## Configuration preset
 `tslint-config-silind` comes pre-configured with the following rules.
-These can be overriden in `tslint.json` under `rules`.
+These can be overridden in `tslint.json` under `rules`.
 
 ```js
 rules: {
@@ -104,6 +104,7 @@ rules: {
 | Has Fixer | TS Only | Rule Name | Description |
 | :---          | :---:  | :---:  | :---        |
 | :heavy_check_mark: | :heavy_check_mark: | `no-lowlevel-commenting` | Fails in the presence of low-level comments that are not part of JSDocs |
+| :x: | :heavy_check_mark: | `discrete-ternary` | Prevents overuse of the ternary operator |
 
 ## Contributing
 

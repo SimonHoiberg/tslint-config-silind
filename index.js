@@ -2,6 +2,7 @@ module.exports = {
   extends: './tslint-base.json',
   rules: {
     "no-lowlevel-commenting": true,
+    "discrete-ternary": true,
     "curly": true,
     "max-classes-per-file": false,
     "variable-name": false,
