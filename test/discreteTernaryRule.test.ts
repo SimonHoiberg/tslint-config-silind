@@ -1,6 +1,6 @@
 import { helper } from './lintRunner';
 
-const rule = 'discrete-ternary';
+const rule = 'discreet-ternary';
 
 describe('Linter will add failure', () => {
   it('should fail on return', () => {

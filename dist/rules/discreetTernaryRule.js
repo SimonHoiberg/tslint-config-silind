@@ -17,7 +17,7 @@ var Lint = require("tslint");
 var utils = require("tsutils");
 var ts = require("typescript");
 /**
- * Discrete Ternary
+ * Discreet Ternary
  * @author Silind Software
  * @license MIT
  */
@@ -37,7 +37,7 @@ var Rule = /** @class */ (function (_super) {
     Rule.FAILURE_NO_COMPLEX_ALTERNATE = 'The alternate of ternary is too complex';
     Rule.FAILURE_NO_FALLBACK = 'Avoid using ternary for fallbacks.\nUse || instead';
     Rule.metadata = {
-        ruleName: 'discrete-ternary',
+        ruleName: 'discreet-ternary',
         description: 'Prevents overuse of the ternary operator',
         optionsDescription: 'No optional options can be provided',
         options: {
@@ -92,4 +92,4 @@ var TernaryWalker = /** @class */ (function (_super) {
     };
     return TernaryWalker;
 }(Lint.RuleWalker));
-//# sourceMappingURL=discreteTernaryRule.js.map
+//# sourceMappingURL=discreetTernaryRule.js.map

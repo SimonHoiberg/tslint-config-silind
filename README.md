@@ -104,7 +104,7 @@ rules: {
 | Has Fixer | TS Only | Rule Name | Description |
 | :---          | :---:  | :---:  | :---        |
 | :heavy_check_mark: | :heavy_check_mark: | `no-lowlevel-commenting` | Fails in the presence of low-level comments that are not part of JSDocs |
-| :x: | :heavy_check_mark: | `discrete-ternary` | Prevents overuse of the ternary operator |
+| :x: | :heavy_check_mark: | `discreet-ternary` | Prevents overuse of the ternary operator |
 
 ## Contributing
 

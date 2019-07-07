@@ -3,7 +3,7 @@ import * as utils from 'tsutils';
 import * as ts from 'typescript';
 
 /**
- * Discrete Ternary
+ * Discreet Ternary
  * @author Silind Software
  * @license MIT
  */
@@ -18,7 +18,7 @@ export class Rule extends Lint.Rules.AbstractRule {
   static FAILURE_NO_FALLBACK = 'Avoid using ternary for fallbacks.\nUse || instead'
 
   public static metadata: Lint.IRuleMetadata = {
-    ruleName: 'discrete-ternary',
+    ruleName: 'discreet-ternary',
     description: 'Prevents overuse of the ternary operator',
     optionsDescription: 'No optional options can be provided',
     options: {
