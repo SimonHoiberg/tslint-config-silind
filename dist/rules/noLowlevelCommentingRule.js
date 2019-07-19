@@ -59,22 +59,25 @@ function walkOnComments(ctx) {
         if (fullText.slice(pos, pos + 3) === '/**') {
             var afterComment = fullText.substring(end).trim();
             var firstLine = afterComment.substring(0, afterComment.indexOf('\n'));
-            if (firstLine.match(/\@.+/m)) {
+            if (firstLine.match(/\@.+/)) {
                 return;
             }
-            if (firstLine.match(/.*class.*/m)) {
+            if (firstLine.match(/.*class.*/)) {
                 return;
             }
-            if (firstLine.match(/.*interface.*/m)) {
+            if (firstLine.match(/.*interface.*/)) {
                 return;
             }
-            if (firstLine.match(/.+=\s+\(/m)) {
+            if (firstLine.match(/.+=\s+\(/)) {
                 return;
             }
-            if (firstLine.match(/.*[a-zA-Z0-9]*\([a-zA-Z0-9\:\<\>\[\]\s,\?\|\=]*\).*/m)) {
+            if (firstLine.match(/[a-zA-Z0-9?]*:\s+([a-zA-Z0-9\'\:\<\>\[\]\s\?\|\=])*;/)) {
                 return;
             }
-            if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,\?\|\=]*\)\s+=>\s+\{/m)) {
+            if (firstLine.match(/.*[a-zA-Z0-9]*\([a-zA-Z0-9\'\:\<\>\[\]\s,\?\|\=]*\).*/)) {
+                return;
+            }
+            if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,\?\|\=]*\)\s+=>\s+\{/)) {
                 return;
             }
             fail();

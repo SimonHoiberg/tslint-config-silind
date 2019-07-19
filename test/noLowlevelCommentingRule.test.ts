@@ -136,6 +136,22 @@ describe('Linter will not add failure', () => {
     expect(result.errorCount).toBe(0);
   });
 
+  it('should not fail on JSDoc comment above method with params and return type', () => {
+    const src = `
+      class A {
+        /**
+         * This is a JSDoc Comment
+         */
+        public withType(inputType: 'number' | 'text' | 'date'): this {
+          return this;
+        }
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
   it('should not fail on JSDoc comment above decorator', () => {
     const src = `
       /**
@@ -158,6 +174,20 @@ describe('Linter will not add failure', () => {
        */
       export interface ISomeInterface {
 
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('should not fail on JSDoc comment above interface property', () => {
+    const src = `
+      export interface ISomeInterface {
+        /**
+         * This is a JSDoc Comment
+         */
+        someProp: string;
       }
     `;
 

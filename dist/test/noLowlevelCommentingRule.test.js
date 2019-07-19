@@ -49,6 +49,11 @@ describe('Linter will not add failure', function () {
         var result = lintRunner_1.helper({ src: src, rule: rule });
         expect(result.errorCount).toBe(0);
     });
+    it('should not fail on JSDoc comment above method with params and return type', function () {
+        var src = "\n      class A {\n        /**\n         * This is a JSDoc Comment\n         */\n        public withType(inputType: 'number' | 'text' | 'date'): this {\n          return this;\n        }\n      }\n    ";
+        var result = lintRunner_1.helper({ src: src, rule: rule });
+        expect(result.errorCount).toBe(0);
+    });
     it('should not fail on JSDoc comment above decorator', function () {
         var src = "\n      /**\n       * This is a JSDoc Comment\n       */\n      @someDecorator()\n      class A {\n        \n      }\n    ";
         var result = lintRunner_1.helper({ src: src, rule: rule });
@@ -56,6 +61,11 @@ describe('Linter will not add failure', function () {
     });
     it('should not fail on JSDoc comment above interface', function () {
         var src = "\n      /**\n       * This is a JSDoc Comment\n       */\n      export interface ISomeInterface {\n\n      }\n    ";
+        var result = lintRunner_1.helper({ src: src, rule: rule });
+        expect(result.errorCount).toBe(0);
+    });
+    it('should not fail on JSDoc comment above interface property', function () {
+        var src = "\n      export interface ISomeInterface {\n        /**\n         * This is a JSDoc Comment\n         */\n        someProp: string;\n      }\n    ";
         var result = lintRunner_1.helper({ src: src, rule: rule });
         expect(result.errorCount).toBe(0);
     });
