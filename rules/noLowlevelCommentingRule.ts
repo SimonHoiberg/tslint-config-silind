@@ -59,7 +59,7 @@ function walkOnComments(ctx: Lint.WalkContext): void {
         return;
       }
 
-      if (firstLine.match(/.+=\s+\(/)) {
+      if (firstLine.match(/.+=*\s*\(/)) {
         return;
       }
 

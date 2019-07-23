@@ -68,7 +68,7 @@ function walkOnComments(ctx) {
             if (firstLine.match(/.*interface.*/)) {
                 return;
             }
-            if (firstLine.match(/.+=\s+\(/)) {
+            if (firstLine.match(/.+=*\s*\(/)) {
                 return;
             }
             if (firstLine.match(/[a-zA-Z0-9?]*:\s+([a-zA-Z0-9\'\:\<\>\[\]\s\?\|\=])*;/)) {

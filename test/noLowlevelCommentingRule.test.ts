@@ -195,12 +195,28 @@ describe('Linter will not add failure', () => {
     expect(result.errorCount).toBe(0);
   });
 
-  it('should not fail on JSDoc comment above multiline function declaration', () => {
+  it('should not fail on JSDoc comment above multiline function expression', () => {
     const src = `
       /**
        * This is a JSDoc Comment
        */
       export public someFunc = (
+        arg1,
+        arg2,
+        arg3
+      );
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('should not fail on JSDoc comment above multiline function declaration', () => {
+    const src = `
+      /**
+       * This is a JSDoc Comment
+       */
+      export public someFunc(
         arg1,
         arg2,
         arg3
