@@ -60,6 +60,7 @@ rules: {
   "max-line-length": { "options": [120], "severity": "warning" },
   "no-consecutive-blank-lines": { "options": [1], "severity": "warning" },
   "quotemark": [true, "single"],
+  "array-type": [true, "array-simple"],
   "typedef": {
     "options": ["call-signature", "parameter"],
     "severity": "error"
