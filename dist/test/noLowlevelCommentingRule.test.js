@@ -69,6 +69,11 @@ describe('Linter will not add failure', function () {
         var result = lintRunner_1.helper({ src: src, rule: rule });
         expect(result.errorCount).toBe(0);
     });
+    it('should not fail on JSDoc comment above enum', function () {
+        var src = "\n      /**\n       * This is a JSDoc Comment\n       */\n      export enum SomeEnum {\n\n      }\n    ";
+        var result = lintRunner_1.helper({ src: src, rule: rule });
+        expect(result.errorCount).toBe(0);
+    });
     it('should not fail on JSDoc comment above multiline function expression', function () {
         var src = "\n      /**\n       * This is a JSDoc Comment\n       */\n      export public someFunc = (\n        arg1,\n        arg2,\n        arg3\n      );\n    ";
         var result = lintRunner_1.helper({ src: src, rule: rule });

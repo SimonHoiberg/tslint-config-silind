@@ -1,4 +1,5 @@
 import { helper } from './lintRunner';
+import { couldStartTrivia } from 'typescript';
 
 const rule = 'no-lowlevel-commenting';
 const errorMsg = 'Low-Level comments are not allowed';
@@ -188,6 +189,20 @@ describe('Linter will not add failure', () => {
          * This is a JSDoc Comment
          */
         someProp: string;
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('should not fail on JSDoc comment above enum', () => {
+    const src = `
+      /**
+       * This is a JSDoc Comment
+       */
+      export enum SomeEnum {
+
       }
     `;
 

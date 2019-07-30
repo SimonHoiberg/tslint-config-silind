@@ -68,6 +68,9 @@ function walkOnComments(ctx) {
             if (firstLine.match(/.*interface.*/)) {
                 return;
             }
+            if (firstLine.match(/.*enum.*/)) {
+                return;
+            }
             if (firstLine.match(/.+=*\s*\(/)) {
                 return;
             }
@@ -77,7 +80,7 @@ function walkOnComments(ctx) {
             if (firstLine.match(/.*[a-zA-Z0-9]*\([a-zA-Z0-9\'\:\<\>\[\]\s,\?\|\=]*\).*/)) {
                 return;
             }
-            if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,\?\|\=]*\)\s+=>\s+\{/)) {
+            if (firstLine.match(/const\s+[a-zA-Z0-9]+\s+=\s+\([a-zA-Z0-9\:\<\>\[\]\s,\?\|\=]*\)\s+=>\s+.*\{/)) {
                 return;
             }
             fail();
