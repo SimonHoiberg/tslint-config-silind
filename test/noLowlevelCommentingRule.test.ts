@@ -1,5 +1,4 @@
 import { helper } from './lintRunner';
-import { couldStartTrivia } from 'typescript';
 
 const rule = 'no-lowlevel-commenting';
 const errorMsg = 'Low-Level comments are not allowed';
@@ -127,7 +126,7 @@ describe('Linter will not add failure', () => {
         /**
          * This is a JSDoc Comment
          */
-        const someFunc(controls?: TemplateResult | TemplateResult[] = 2) => {
+        const someFunc(controls?: TemplateResult | TemplateResult[] = 2) {
 
         }
       }

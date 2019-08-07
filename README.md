@@ -1,4 +1,5 @@
-# TSLint Config Silind
+# TSLint Config Silind [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Write%20scalable,%20clean%20and%20hygienic%20TypeScript%20code%20with%20TSlint%20Config%20Silind&url=https://github.com/Silind/tslint-config-silind&hashtags=tslint,typescript,frontend)
+
 ![NPM Version](https://img.shields.io/npm/v/tslint-config-silind.svg)
 [![Github License](https://img.shields.io/github/license/Silind/tslint-config-silind.svg)](https://github.com/Silind/tslint-config-silind/blob/master/LICENSE)
 [![Build Status](https://travis-ci.com/Silind/tslint-config-silind.svg?branch=master)](https://travis-ci.com/Silind/tslint-config-silind)
@@ -43,8 +44,8 @@ Create a file `tslint.json` in your project root, and add the following:
 If you already have a `tslint.json` file in your project, make sure to add `tslint-config-silind` under `extends`.
 
 ## Configuration preset
-`tslint-config-silind` comes pre-configured with the following rules.
-These can be overridden in `tslint.json` under `rules`.
+`tslint-config-silind` comes pre-configured with the following rules.  
+These can of course be overridden in `tslint.json` under `rules`.
 
 ```js
 rules: {
@@ -104,7 +105,7 @@ rules: {
 ### The following table shows the custom rules that comes with `tslint-config-silind`.
 | Has Fixer | TS Only | Rule Name | Description |
 | :---          | :---:  | :---:  | :---        |
-| :heavy_check_mark: | :heavy_check_mark: | `no-lowlevel-commenting` | Fails in the presence of low-level comments that are not part of JSDocs |
+| :heavy_check_mark: | :heavy_check_mark: | `no-lowlevel-commenting` | Fails in the presence of low-level comments that are not part of JSDocs. [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/noLowlevelCommentingRule.md) |
 | :x: | :heavy_check_mark: | `discreet-ternary` | Prevents overuse of the ternary operator |
 
 ## Contributing
@@ -120,5 +121,5 @@ Pull requests are always welcome, and I'll do my best to do reviews as fast as I
 This project is licensed under the [MIT License](https://github.com/Silind/tslint-config-silind/blob/master/LICENSE)
 
 ## Get Help
-- Contact me on silindsoftwaredk@gmail.com
+- Contact me on [Twitter](https://twitter.com/silindsoftware)
 - If appropriate, [open an issue](https://github.com/Silind/tslint-config-silind/issues) on GitHub
