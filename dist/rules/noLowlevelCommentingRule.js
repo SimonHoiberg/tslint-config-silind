@@ -50,6 +50,9 @@ function walkOnComments(ctx) {
             var fix = new Lint.Replacement(pos, end - pos, '');
             ctx.addFailure(pos, end, Rule.FAILURE_STRING, fix);
         };
+        if (fullText.slice(pos, pos + 3) === '/*!') {
+            return;
+        }
         if (fullText.slice(pos, pos + 2) === '//') {
             fail();
         }

@@ -84,5 +84,15 @@ describe('Linter will not add failure', function () {
         var result = lintRunner_1.helper({ src: src, rule: rule });
         expect(result.errorCount).toBe(0);
     });
+    it('should not fail on JSDoc comment above exported variables', function () {
+        var src = "\n      /**\n       * This is a JSDoc Comment\n       */\n      export const someObj = {\n        someProp: 'prop',\n      }\n    ";
+        var result = lintRunner_1.helper({ src: src, rule: rule });
+        expect(result.errorCount).toBe(0);
+    });
+    it('should not fail on JSDoc comment above default exported variables', function () {
+        var src = "\n      /**\n       * This is a JSDoc Comment\n       */\n      export default {\n        someProp: 'prop',\n      }\n    ";
+        var result = lintRunner_1.helper({ src: src, rule: rule });
+        expect(result.errorCount).toBe(0);
+    });
 });
 //# sourceMappingURL=noLowlevelCommentingRule.test.js.map
