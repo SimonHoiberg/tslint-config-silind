@@ -45,7 +45,7 @@ describe('Linter will not add failure', function () {
         expect(result.errorCount).toBe(0);
     });
     it('should not fail on JSDoc comment above function with params', function () {
-        var src = "\n      class A {\n        /**\n         * This is a JSDoc Comment\n         */\n        const someFunc(controls?: TemplateResult | TemplateResult[] = 2) => {\n\n        }\n      }\n    ";
+        var src = "\n      class A {\n        /**\n         * This is a JSDoc Comment\n         */\n        const someFunc(controls?: TemplateResult | TemplateResult[] = 2) {\n\n        }\n      }\n    ";
         var result = lintRunner_1.helper({ src: src, rule: rule });
         expect(result.errorCount).toBe(0);
     });

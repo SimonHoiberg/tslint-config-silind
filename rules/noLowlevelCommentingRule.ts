@@ -67,6 +67,10 @@ function walkOnComments(ctx: Lint.WalkContext): void {
         return;
       }
 
+      if (firstLine.match(/export\s+.+/)) {
+        return;
+      }
+
       if (firstLine.match(/[a-zA-Z0-9?]*:\s+([a-zA-Z0-9\'\:\<\>\[\]\s\?\|\=])*;/)) {
         return;
       }

@@ -240,4 +240,32 @@ describe('Linter will not add failure', () => {
     const result = helper({ src, rule });
     expect(result.errorCount).toBe(0);
   });
+
+  it('should not fail on JSDoc comment above exported variables', () => {
+    const src = `
+      /**
+       * This is a JSDoc Comment
+       */
+      export const someObj = {
+        someProp: 'prop',
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('should not fail on JSDoc comment above default exported variables', () => {
+    const src = `
+      /**
+       * This is a JSDoc Comment
+       */
+      export default {
+        someProp: 'prop',
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
 });
