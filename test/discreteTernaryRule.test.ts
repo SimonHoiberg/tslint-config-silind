@@ -14,6 +14,17 @@ describe('Linter will add failure', () => {
     expect(result.failures[1].getFailure()).toBe('Ternary may only be used in variable assignment or declaration');
   });
 
+  it('should fail on explicit return from arrow function', () => {
+    const src = `
+      const m = () => {
+        return (2 + 2 === 4) ? 'correct math' : 'incorrect math';
+      }
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(2);
+  });
+
   it('should fail on missing assignment or declaration', () => {
     const src = `
       (2 + 2 === 4) ? 'correct math' : 'incorrect math';
@@ -88,6 +99,15 @@ describe('Linter will not add failure', () => {
       m = (2 + 2 === 4) 
         ? 'correct math' 
         : 'incorrect math';
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('should not fail on implicit return', () => {
+    const src = `
+      const m = () => (2 + 2 === 4) ? 'correct math' : 'incorrect math';
     `;
 
     const result = helper({ src, rule });

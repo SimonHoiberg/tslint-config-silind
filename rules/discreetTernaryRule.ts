@@ -52,7 +52,7 @@ class TernaryWalker extends Lint.RuleWalker {
       this.fail(node, Rule.FAILURE_RETURN);
     }
 
-    if (!isVariableDeclaration && !isVariableAssignment) {
+    if (!isVariableDeclaration && !isVariableAssignment && !utils.isArrowFunction(node.parent)) {
       this.fail(node, Rule.FAILURE_NO_ASSIGMENT);
     }
 

@@ -68,7 +68,7 @@ var TernaryWalker = /** @class */ (function (_super) {
         if (utils.isReturnStatement(node.parent)) {
             this.fail(node, Rule.FAILURE_RETURN);
         }
-        if (!isVariableDeclaration && !isVariableAssignment) {
+        if (!isVariableDeclaration && !isVariableAssignment && !utils.isArrowFunction(node.parent)) {
             this.fail(node, Rule.FAILURE_NO_ASSIGMENT);
         }
         if (utils.isConditionalExpression(nTrue) || utils.isConditionalExpression(nFalse)) {

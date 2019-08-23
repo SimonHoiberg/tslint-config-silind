@@ -107,6 +107,7 @@ rules: {
 | :---          | :---:  | :---:  | :---        |
 | :heavy_check_mark: | :heavy_check_mark: | `no-lowlevel-commenting` | Fails in the presence of low-level comments that are not part of JSDocs. [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/noLowlevelCommentingRule.md) |
 | :x: | :heavy_check_mark: | `discreet-ternary` | Prevents overuse of the ternary operator [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/discreetTernaryRule.md) |
+| :x: | :heavy_check_mark: | `structured-import`  | Requires import statements to be structured based on content and origin [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/structuredImportRule.md) |
 
 ## Contributing
 

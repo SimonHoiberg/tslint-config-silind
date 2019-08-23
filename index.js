@@ -3,6 +3,7 @@ module.exports = {
   rules: {
     "no-lowlevel-commenting": true,
     "discreet-ternary": true,
+    "structured-import": true,
     "curly": true,
     "max-classes-per-file": false,
     "variable-name": false,
