@@ -6,7 +6,7 @@ describe('Linter will add failure', () => {
   it('should fail on interface before module import', () => {
     const src = `
     import ISomeInterface from './ISomeInterface';
-    import * as ts from 'typescript';
+    import * as ts from 'typescript-test';
     import Something from '../somethingFromSource';
     import styles from './someStyle.scss';
     import './someCss.css';

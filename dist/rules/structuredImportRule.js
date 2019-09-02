@@ -92,7 +92,7 @@ var ImportWalker = /** @class */ (function (_super) {
         if (!node.getText().includes('from')) {
             return ImportNodes.Unnamed;
         }
-        if (importText.match(/^[a-zA-Z0-9]+.$/)) {
+        if (importText.match(/^[a-zA-Z0-9-]+.$/)) {
             return ImportNodes.ModulesNode;
         }
         if (importName && importName.length > 0) {

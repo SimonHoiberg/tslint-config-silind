@@ -82,7 +82,7 @@ class ImportWalker extends Lint.RuleWalker {
       return ImportNodes.Unnamed;
     }
 
-    if (importText.match(/^[a-zA-Z0-9]+.$/)) {
+    if (importText.match(/^[a-zA-Z0-9-]+.$/)) {
       return ImportNodes.ModulesNode;
     }
 
