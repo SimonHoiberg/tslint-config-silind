@@ -104,7 +104,7 @@ class ImportWalker extends Lint.RuleWalker {
       return ImportNodes.StyleNode;
     }
 
-    if (importText.match(/^(.*\/)+.*/)) {
+    if (importText.match(/^((.*\/)+.*)|(.)/)) {
       return ImportNodes.SourceNode;
     }
 

@@ -109,7 +109,7 @@ var ImportWalker = /** @class */ (function (_super) {
         if (importText.match(/.+\.[css|scss]+/)) {
             return ImportNodes.StyleNode;
         }
-        if (importText.match(/^(.*\/)+.*/)) {
+        if (importText.match(/^((.*\/)+.*)|(.)/)) {
             return ImportNodes.SourceNode;
         }
         return ImportNodes.Other;
