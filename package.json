@@ -1,6 +1,6 @@
 {
   "name": "tslint-config-silind",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "An opinionated TSLint configuration preset for writing scalable, clean and hygienic code",
   "main": "index.js",
   "scripts": {
