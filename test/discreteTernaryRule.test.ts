@@ -11,7 +11,7 @@ describe('Linter will add failure', () => {
     const result = helper({ src, rule });
     expect(result.errorCount).toBe(2);
     expect(result.failures[0].getFailure()).toBe('Ternary in return statements are not allowed');
-    expect(result.failures[1].getFailure()).toBe('Ternary may only be used in variable assignment or declaration');
+    expect(result.failures[1].getFailure()).toBe('Ternary may only be used in assignment or declaration');
   });
 
   it('should fail on explicit return from arrow function', () => {
@@ -32,7 +32,7 @@ describe('Linter will add failure', () => {
 
     const result = helper({ src, rule });
     expect(result.errorCount).toBe(1);
-    expect(result.failures[0].getFailure()).toBe('Ternary may only be used in variable assignment or declaration');
+    expect(result.failures[0].getFailure()).toBe('Ternary may only be used in assignment or declaration');
   });
 
   it('should fail on complexity', () => {
@@ -83,10 +83,21 @@ describe('Linter will not add failure', () => {
     expect(result.errorCount).toBe(0);
   });
 
-  it('should not fail on assignment', () => {
+  it('should not fail on variable assignment', () => {
     const src = `
       let m = '';
       m = (2 + 2 === 4) ? 'correct math' : 'incorrect math';
+    `;
+
+    const result = helper({ src, rule });
+    expect(result.errorCount).toBe(0);
+  });
+
+  it('should not fail on property assignment', () => {
+    const src = `
+      const m = {
+        prop: (2 + 2 === 4) ? 'correct math' : 'incorrect math',
+      }
     `;
 
     const result = helper({ src, rule });

@@ -10,7 +10,7 @@ import * as ts from 'typescript';
 
 export class Rule extends Lint.Rules.AbstractRule {
   static FAILURE_RETURN = 'Ternary in return statements are not allowed';
-  static FAILURE_NO_ASSIGMENT = 'Ternary may only be used in variable assignment or declaration';
+  static FAILURE_NO_ASSIGMENT = 'Ternary may only be used in assignment or declaration';
   static FAILURE_NO_NESTED = 'Nested ternary are not allowed';
   static FAILURE_NO_RENDERING = 'Ternary may not be used to render JSX Element';
   static FAILURE_NO_COMPLEX_CONSEQUENT = 'The consequent of ternary is too complex';
@@ -39,6 +39,8 @@ class TernaryWalker extends Lint.RuleWalker {
     super.visitConditionalExpression(node);
     const isVariableDeclaration = node.parent.kind === ts.SyntaxKind.VariableDeclaration;
     const isVariableAssignment = node.parent.kind === ts.SyntaxKind.BinaryExpression;
+    const isPropertyAssignment = node.parent.kind === ts.SyntaxKind.PropertyAssignment;
+    const isArrowFunction = node.parent.kind === ts.SyntaxKind.ArrowFunction;
 
     const nTrue = utils.isParenthesizedExpression(node.whenTrue)
       ? utils.unwrapParentheses(node.whenTrue)
@@ -52,7 +54,7 @@ class TernaryWalker extends Lint.RuleWalker {
       this.fail(node, Rule.FAILURE_RETURN);
     }
 
-    if (!isVariableDeclaration && !isVariableAssignment && !utils.isArrowFunction(node.parent)) {
+    if (!isVariableDeclaration && !isVariableAssignment && !isArrowFunction && !isPropertyAssignment) {
       this.fail(node, Rule.FAILURE_NO_ASSIGMENT);
     }
 

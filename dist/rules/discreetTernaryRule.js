@@ -30,7 +30,7 @@ var Rule = /** @class */ (function (_super) {
         return this.applyWithWalker(new TernaryWalker(sourceFile, this.getOptions()));
     };
     Rule.FAILURE_RETURN = 'Ternary in return statements are not allowed';
-    Rule.FAILURE_NO_ASSIGMENT = 'Ternary may only be used in variable assignment or declaration';
+    Rule.FAILURE_NO_ASSIGMENT = 'Ternary may only be used in assignment or declaration';
     Rule.FAILURE_NO_NESTED = 'Nested ternary are not allowed';
     Rule.FAILURE_NO_RENDERING = 'Ternary may not be used to render JSX Element';
     Rule.FAILURE_NO_COMPLEX_CONSEQUENT = 'The consequent of ternary is too complex';
@@ -59,6 +59,8 @@ var TernaryWalker = /** @class */ (function (_super) {
         _super.prototype.visitConditionalExpression.call(this, node);
         var isVariableDeclaration = node.parent.kind === ts.SyntaxKind.VariableDeclaration;
         var isVariableAssignment = node.parent.kind === ts.SyntaxKind.BinaryExpression;
+        var isPropertyAssignment = node.parent.kind === ts.SyntaxKind.PropertyAssignment;
+        var isArrowFunction = node.parent.kind === ts.SyntaxKind.ArrowFunction;
         var nTrue = utils.isParenthesizedExpression(node.whenTrue)
             ? utils.unwrapParentheses(node.whenTrue)
             : node.whenTrue;
@@ -68,7 +70,7 @@ var TernaryWalker = /** @class */ (function (_super) {
         if (utils.isReturnStatement(node.parent)) {
             this.fail(node, Rule.FAILURE_RETURN);
         }
-        if (!isVariableDeclaration && !isVariableAssignment && !utils.isArrowFunction(node.parent)) {
+        if (!isVariableDeclaration && !isVariableAssignment && !isArrowFunction && !isPropertyAssignment) {
             this.fail(node, Rule.FAILURE_NO_ASSIGMENT);
         }
         if (utils.isConditionalExpression(nTrue) || utils.isConditionalExpression(nFalse)) {
