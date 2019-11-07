@@ -7,7 +7,7 @@ exports.helper = function (_a) {
     var linter = new tslint_1.Linter({ fix: false });
     linter.lint(fileName || '', src, tslint_1.Configuration.parseConfigFile({
         rules: (_b = {},
-            _b[rule.name || rule] = [true].concat(rule.options),
+            _b[rule] = {},
             _b),
         rulesDirectory: 'dist/rules',
     }));

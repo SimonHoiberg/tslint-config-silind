@@ -42,7 +42,7 @@ var Rule = /** @class */ (function (_super) {
         options: {
             type: 'boolean',
         },
-        hasFix: true,
+        hasFix: false,
         type: 'style',
         typescriptOnly: true,
     };

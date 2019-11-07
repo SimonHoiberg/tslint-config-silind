@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/Silind/tslint-config-silind#readme",
   "dependencies": {
-    "tslint": "^5.18.0",
-    "tsutils": "^3.14.0",
-    "typescript": "^3.5.2"
+    "tslint": "^5.20.1",
+    "tsutils": "^3.17.1",
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",

@@ -36,7 +36,7 @@ var Rule = /** @class */ (function (_super) {
         options: {
             type: 'boolean',
         },
-        hasFix: true,
+        hasFix: false,
         type: 'style',
         typescriptOnly: true,
     };
@@ -47,8 +47,7 @@ function walkOnComments(ctx) {
     utils.forEachComment(ctx.sourceFile, function (fullText, _a) {
         var kind = _a.kind, pos = _a.pos, end = _a.end;
         var fail = function () {
-            var fix = new Lint.Replacement(pos, end - pos, '');
-            ctx.addFailure(pos, end, Rule.FAILURE_STRING, fix);
+            ctx.addFailure(pos, end, Rule.FAILURE_STRING);
         };
         if (fullText.slice(pos, pos + 3) === '/*!') {
             return;
