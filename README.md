@@ -1,9 +1,9 @@
 # TSLint Config Silind [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Write%20scalable,%20clean%20and%20hygienic%20TypeScript%20code%20with%20TSlint%20Config%20Silind&url=https://github.com/Silind/tslint-config-silind&hashtags=tslint,typescript,frontend)
 
 ![NPM Version](https://img.shields.io/npm/v/tslint-config-silind.svg)
-[![Github License](https://img.shields.io/github/license/Silind/tslint-config-silind.svg)](https://github.com/Silind/tslint-config-silind/blob/master/LICENSE)
-[![Build Status](https://travis-ci.com/Silind/tslint-config-silind.svg?branch=master)](https://travis-ci.com/Silind/tslint-config-silind)
-![Code Coverage](https://img.shields.io/codecov/c/github/Silind/tslint-config-silind.svg)
+[![Github License](https://img.shields.io/github/license/Silind-Software/tslint-config-silind.svg)](https://github.com/Silind-Software/tslint-config-silind/blob/master/LICENSE)
+![Build Status](https://github.com/Silind-Software/tslint-config-silind/workflows/build/badge.svg)
+![Code Coverage](https://img.shields.io/codecov/c/github/Silind-Software/tslint-config-silind)
 
 #### An opinionated TSLint configuration preset for writing *scalable*, *clean* and *hygienic* code
 
@@ -62,10 +62,6 @@ rules: {
   "no-consecutive-blank-lines": { "options": [1], "severity": "warning" },
   "quotemark": [true, "single"],
   "array-type": [true, "array-simple"],
-  "typedef": {
-    "options": ["call-signature", "parameter"],
-    "severity": "error"
-  },
   "prefer-array-literal": { 
     "options": [true, { "allow-type-parameters": true }], 
     "severity": "error" 
@@ -103,11 +99,11 @@ rules: {
 ```
 
 ### The following table shows the custom rules that comes with `tslint-config-silind`.
-| Has Fixer | TS Only | Rule Name | Description |
-| :---          | :---:  | :---:  | :---        |
-| :heavy_check_mark: | :heavy_check_mark: | `no-lowlevel-commenting` | Fails in the presence of low-level comments that are not part of JSDocs. [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/noLowlevelCommentingRule.md) |
-| :x: | :heavy_check_mark: | `discreet-ternary` | Prevents overuse of the ternary operator [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/discreetTernaryRule.md) |
-| :x: | :heavy_check_mark: | `structured-import`  | Requires import statements to be structured based on content and origin [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/structuredImportRule.md) |
+| TS Only | Rule Name | Description |
+| :---           | :---:  | :---        |
+| :heavy_check_mark: | `no-lowlevel-commenting` | Fails in the presence of low-level comments that are not part of JSDocs. [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/noLowlevelCommentingRule.md) |
+| :heavy_check_mark: | `discreet-ternary` | Prevents overuse of the ternary operator [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/discreetTernaryRule.md) |
+| :heavy_check_mark: | `structured-import`  | Requires import statements to be structured based on content and origin [Read more](https://github.com/Silind/tslint-config-silind/blob/master/docs/structuredImportRule.md) |
 
 ## Contributing
 

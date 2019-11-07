@@ -17,10 +17,6 @@ module.exports = {
     "no-consecutive-blank-lines": { "options": [1], "severity": "warning" },
     "quotemark": [true, "single"],
     "array-type": [true, "array-simple"],
-    "typedef": {
-      "options": ["call-signature", "parameter"],
-      "severity": "error"
-    },
     "trailing-comma": {
       "options": [
         {

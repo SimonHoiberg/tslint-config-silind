@@ -18,7 +18,7 @@ export class Rule extends Lint.Rules.AbstractRule {
     options: {
       type: 'boolean',
     },
-    hasFix: true,
+    hasFix: false,
     type: 'style',
     typescriptOnly: true,
   }
@@ -31,8 +31,7 @@ export class Rule extends Lint.Rules.AbstractRule {
 function walkOnComments(ctx: Lint.WalkContext): void {
   utils.forEachComment(ctx.sourceFile, (fullText, { kind, pos, end }) => {
     const fail = () => {
-      const fix = new Lint.Replacement(pos, end - pos, '');
-      ctx.addFailure(pos, end, Rule.FAILURE_STRING, fix);
+      ctx.addFailure(pos, end, Rule.FAILURE_STRING);
     }
 
     if (fullText.slice(pos, pos + 3) === '/*!') {

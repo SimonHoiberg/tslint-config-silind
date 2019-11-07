@@ -24,7 +24,7 @@ export class Rule extends Lint.Rules.AbstractRule {
     options: {
       type: 'boolean',
     },
-    hasFix: true,
+    hasFix: false,
     type: 'style',
     typescriptOnly: true,
   }
