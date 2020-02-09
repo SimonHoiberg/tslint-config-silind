@@ -7,6 +7,12 @@
 
 #### An opinionated TSLint configuration preset for writing *scalable*, *clean* and *hygienic* code
 
+# :warning: This project is deprecated
+TSLint has been deprecated.  
+As a consequence, this project will no longer be maintained.
+
+> Read more about TSLint deprecation [here](https://github.com/palantir/tslint/issues/4534)
+
 ## Table of content
 
 - [Getting Started](#getting-started)
